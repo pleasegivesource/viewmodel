@@ -32,7 +32,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Publish package
-        run: ./gradle publish
+        run: ./gradlew publish
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
