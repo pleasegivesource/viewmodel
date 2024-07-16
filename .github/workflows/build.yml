@@ -18,13 +18,14 @@ jobs:
           distribution: 'corretto'
           cache: 'gradle'
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@88425854a36845f9c881450d9660b5fd46bee142
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: build
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        uses: gradle/actions/wrapper-validation@v3
+
+      - name: Setup gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build package
+        run: ./gradle build
+
       - uses: actions/upload-artifact@v4
         with:
           name: Package
