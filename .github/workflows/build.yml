@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
-          java-version: '20'
-          distribution: 'semeru'
+          java-version: '21'
+          distribution: 'corretto'
           cache: 'gradle'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@88425854a36845f9c881450d9660b5fd46bee142
