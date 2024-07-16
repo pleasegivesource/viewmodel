@@ -7,6 +7,7 @@ import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -49,7 +50,7 @@ public abstract class MixinHeldItemRenderer {
     public abstract void renderItem(LivingEntity entity, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light);
 
     @Shadow
-    protected abstract void applyEatOrDrinkTransformation(MatrixStack matrices, float tickDelta, Arm arm, ItemStack stack);
+    protected abstract void applyEatOrDrinkTransformation(MatrixStack matrices, float tickDelta, Arm arm, ItemStack stack, PlayerEntity player);
 
     /**
      * @author CyberFlame
@@ -98,9 +99,10 @@ public abstract class MixinHeldItemRenderer {
                         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-11.935F));
                         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(i * 65.3F));
                         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(i * -9.785F));
-                        assert null != this.client.player;
-                        v = item.getMaxUseTime() - (Objects.requireNonNull(this.client.player).getItemUseTimeLeft() - tickDelta + 1.0F);
-                        w = v / CrossbowItem.getPullTime(item);
+                        assert this.client.player != null;
+                        LivingEntity playerEntity = this.client.player;
+                        v = item.getMaxUseTime(playerEntity) - (Objects.requireNonNull(playerEntity).getItemUseTimeLeft() - tickDelta + 1.0F);
+                        w = v / CrossbowItem.getPullTime(item, playerEntity);
                         if (1.0F < w) {
                             w = 1.0F;
                         }
@@ -138,7 +140,7 @@ public abstract class MixinHeldItemRenderer {
                         switch (item.getUseAction()) {
                             case NONE, BLOCK -> this.applyEquipOffset(matrices, arm, equipProgress);
                             case EAT, DRINK -> {
-                                this.applyEatOrDrinkTransformation(matrices, tickDelta, arm, item);
+                                this.applyEatOrDrinkTransformation(matrices, tickDelta, arm, item, player);
                                 this.applyEquipOffset(matrices, arm, equipProgress);
                             }
                             case BOW -> {
@@ -195,8 +197,7 @@ public abstract class MixinHeldItemRenderer {
     }
 
     @Unique
-    @SuppressWarnings("strictfp")
-    private static strictfp float getV(MatrixStack matrices, float v, float u) {
+    private static float getV(MatrixStack matrices, float v, float u) {
         float v1 = v;
         float w;
         float x;
@@ -219,7 +220,8 @@ public abstract class MixinHeldItemRenderer {
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(o * 35.3F));
         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(o * -9.785F));
         assert null != client.player;
-        u = (float) item.getMaxUseTime() - ((float) client.player.getItemUseTimeLeft() - tickDelta + 1.0F);
+        LivingEntity playerEntity = client.player;
+        u = (float) item.getMaxUseTime(playerEntity) - ((float) playerEntity.getItemUseTimeLeft() - tickDelta + 1.0F);
         return u;
     }
 
