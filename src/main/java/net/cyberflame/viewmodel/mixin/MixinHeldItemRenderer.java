@@ -57,7 +57,7 @@ public abstract class MixinHeldItemRenderer {
      * @reason The inject would always cancel and therefore can cause incompatibilities with other mods.
      */
     @Overwrite
-    private void renderFirstPersonItem(@NotNull AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+    public void renderFirstPersonItem(@NotNull AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         if (!player.isUsingSpyglass()) {
             boolean bl = Hand.MAIN_HAND == hand;
             Arm arm = bl ? player.getMainArm() : player.getMainArm().getOpposite();
