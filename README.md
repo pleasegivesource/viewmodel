@@ -33,11 +33,11 @@ The mod is currently available for the following versions of the game (all of th
 To download the mod, go to the [Releases page](https://github.com/CyberFlameGO/viewmodel-changer/releases) and download the `viewmodel-*.jar` (where `*` is a version number) file under the Assets section, for the version of the game you want to use the mod on (ideally the latest release for your game version). You can also download the mod from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/viewmodel-changer) or [Modrinth](https://modrinth.com/mod/viewmodel) if you prefer that - the builds are manually kept up to date at the time of writing.
 
 
-### Usage (copied from original README)
-> to open the gui, press the BACKSLASH key.  
-> inside it, you'll see switches and sliders.  
-> for sliders, you can use either your mouse wheel to change the values or click on a specific spot and hope to get it right.  
-> for switches, just click on it to negate the value of that setting.
+### Usage
+To use this mod, open the Viewmodel Settings menu - the default keybind is BACKSLASH ("\"), but this is configurable as of v1.10.3.
+Inside the settings menu, you'll see switches and sliders.
+For sliders, you can use either your mouse wheel to change the values or click on a specific spot and hope to get it right.
+For switches, just click on it to negate the value of that setting.
 
 ---
 
