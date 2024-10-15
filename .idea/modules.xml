@@ -4,9 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects.viewmodel-changer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects.viewmodel-changer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects.viewmodel-changer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects.viewmodel-changer.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cyberflame.IdeaProjects.viewmodel-changer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cyberflame.IdeaProjects.viewmodel-changer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cyberflame.IdeaProjects.viewmodel-changer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/cyberflame.IdeaProjects.viewmodel-changer.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.cyberflame.viewmodel-changer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/net.cyberflame.viewmodel-changer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.cyberflame.viewmodel-changer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/net.cyberflame.viewmodel-changer.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewmodel-changer.iml" filepath="$PROJECT_DIR$/.idea/modules/viewmodel-changer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewmodel-changer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/viewmodel-changer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewmodel-changer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/viewmodel-changer.test.iml" />
     </modules>

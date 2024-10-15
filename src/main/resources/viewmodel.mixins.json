@@ -4,8 +4,7 @@
   "package": "net.cyberflame.viewmodel.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MixinHeldItemRenderer",
-    "MixinKeyboard"
+    "MixinHeldItemRenderer"
   ],
   "client": [
   ],
